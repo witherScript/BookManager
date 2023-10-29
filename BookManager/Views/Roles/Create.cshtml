@@ -1,0 +1,26 @@
+@model Microsoft.AspNetCore.Identity.IdentityRole  
+@if(Model.Name == "admin")
+{
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-title">Create System Roles</h1>
+      </div>
+      <div class="card-body">
+        @using (@Html.BeginForm())
+        {
+          @Html.DisplayNameFor(model=>model.Name);
+          @Html.TextBoxFor(model=>model.Name);
+        }
+        <input type="submit" value="Add New Role to System" class="btn btn-primary"/>
+      </div>
+    </div>
+  </div>
+}
+
+else {
+  <div class="alert alert-danger">
+    You are not authorized to access this page. 
+    @Html.ActionLink("Click Here to Return Home", "Index", "Accounts")
+  </div>
+}
